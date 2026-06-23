@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lucy Tran — Design Engineer</title>
+<meta name="description" content="Lucy Tran is a design engineer in Riga (→ Barcelona) building interfaces with an illustrator's eye and an AI-augmented workflow." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+/* ============================================================
+   DESIGN TOKENS — "two-ink risograph" system
+   Inks chosen from real riso drums: Medium Blue + Fluo Pink,
+   with Sunflower as a spot color. Paper is a cool off-white.
+   ============================================================ */
+:root{
+  --paper:        #F5F4EF;
+  --ink:          #1B1A17;   /* near-black, like dense riso black */
+  --riso-blue:    #2F55A4;
+  --riso-pink:    #FF48B0;
+  --riso-yellow:  #FFB511;
+  --ink-soft:     #5C5A53;
+
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-body:    "Instrument Sans", system-ui, sans-serif;
+  --font-mono:    "Spline Sans Mono", ui-monospace, monospace;
+
+  --max-w: 1120px;
+  --gutter: clamp(20px, 4vw, 48px);
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
+
+body{
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection{ background: var(--riso-pink); color: var(--paper); }
+
+a{ color: inherit; }
+a:focus-visible, button:focus-visible{
+  outline: 3px solid var(--riso-blue);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.wrap{ max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); }
+
+/* ---------- registration marks (printmaking signature) ---------- */
+.regmark{
+  display:inline-block; width:18px; height:18px; flex:none;
+  position:relative;
+}
+.regmark::before, .regmark::after{
+  content:""; position:absolute; background: var(--ink);
+}
+.regmark::before{ left:50%; top:0; width:1.5px; height:100%; transform:translateX(-50%); }
+.regmark::after{ top:50%; left:0; height:1.5px; width:100%; transform:translateY(-50%); }
+.regmark i{
+  position:absolute; inset:3px; border:1.5px solid var(--ink); border-radius:50%;
+}
+
+/* ---------- header ---------- */
+header{
+  border-bottom: 1.5px solid var(--ink);
+  position: sticky; top:0; z-index: 50;
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter: blur(8px);
+}
+.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 14px var(--gutter);
+  max-width: var(--max-w); margin: 0 auto;
+}
+.logo{
+  font-family: var(--font-display);
+  font-weight: 800; font-size: 18px; letter-spacing: .02em;
+  text-decoration:none; display:flex; align-items:center; gap:10px;
+}
+.nav ul{ display:flex; gap: clamp(14px, 3vw, 32px); list-style:none; }
+.nav ul a{
+  text-decoration:none; font-size:14px; font-weight:500;
+  font-family: var(--font-mono); text-transform: lowercase;
+}
+.nav ul a:hover{ color: var(--riso-blue); text-decoration: underline; text-underline-offset: 4px; }
+.stamp{
+  font-family: var(--font-mono); font-size: 11px; letter-spacing:.06em;
+  border: 1.5px solid var(--riso-blue); color: var(--riso-blue);
+  padding: 4px 10px; border-radius: 999px; transform: rotate(-2deg);
+  white-space: nowrap;
+}
+@media (max-width: 720px){ .stamp{ display:none; } }
+
+/* ---------- hero ---------- */
+.hero{ padding: clamp(56px, 10vh, 120px) 0 clamp(40px, 7vh, 80px); position:relative; overflow:hidden; }
+.hero-grid{ display:grid; grid-template-columns: 1.6fr 1fr; gap: clamp(24px, 5vw, 64px); align-items:end; }
+@media (max-width: 860px){ .hero-grid{ grid-template-columns: 1fr; } }
+
+.kicker{
+  font-family: var(--font-mono); font-size: 13px; color: var(--ink-soft);
+  display:flex; align-items:center; gap:10px; margin-bottom: 22px;
+}
+
+/* The signature: misregistered overprint headline.
+   Two ink layers (pink + blue) multiply over each other,
+   slightly offset — like a riso print pulled a hair off-register. */
+.overprint{
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(44px, 7.4vw, 92px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  position: relative;
+  color: transparent;
+}
+.overprint span{ position:relative; display:block; }
+.overprint span::before,
+.overprint span::after{
+  content: attr(data-text);
+  position:absolute; inset:0;
+  mix-blend-mode: multiply;
+}
+.overprint span::before{ color: var(--riso-pink); transform: translate(2px, 2px); }
+.overprint span::after{ color: var(--riso-blue); transform: translate(-1px, -1px); }
+
+.hero-sub{
+  margin-top: 26px; font-size: clamp(17px, 2vw, 20px); max-width: 52ch;
+  color: var(--ink);
+}
+.hero-sub strong{ font-weight:600; }
+.hero-cta{ margin-top: 30px; display:flex; gap:14px; flex-wrap:wrap; }
+.btn{
+  font-family: var(--font-mono); font-size:14px; text-decoration:none;
+  padding: 12px 20px; border: 1.5px solid var(--ink); border-radius: 4px;
+  background: var(--ink); color: var(--paper);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn.ghost{ background: transparent; color: var(--ink); }
+.btn:hover{ transform: translate(-2px,-2px); box-shadow: 3px 3px 0 var(--riso-pink); }
+
+/* spec sheet — like the colophon on the back of a print */
+.spec{
+  border: 1.5px solid var(--ink); border-radius: 6px;
+  font-family: var(--font-mono); font-size: 13px;
+  background: var(--paper);
+}
+.spec h2{
+  font-size: 12px; letter-spacing: .12em; font-weight:500;
+  border-bottom: 1.5px solid var(--ink); padding: 10px 16px;
+  display:flex; justify-content:space-between; align-items:center;
+}
+.spec dl{ padding: 14px 16px; display:grid; gap: 10px; }
+.spec div{ display:grid; grid-template-columns: 92px 1fr; gap: 12px; }
+.spec dt{ color: var(--ink-soft); }
+.spec dd{ font-weight: 500; }
+.spec .accent{ color: var(--riso-blue); }
+
+/* ---------- section scaffolding ---------- */
+section{ padding: clamp(56px, 9vh, 110px) 0; }
+.sect-head{
+  display:flex; align-items:center; gap:14px; margin-bottom: clamp(28px, 5vh, 48px);
+}
+.sect-head h2{
+  font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(26px, 3.4vw, 40px); letter-spacing:-0.01em;
+}
+.sect-head .rule{ flex:1; height:1.5px; background: var(--ink); }
+.sect-head .count{ font-family: var(--font-mono); font-size:13px; color: var(--ink-soft); }
+
+/* ---------- work / case studies ---------- */
+.case{
+  display:grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 56px);
+  padding: clamp(28px, 4vh, 44px) 0;
+  border-top: 1.5px solid var(--ink);
+  align-items: start;
+}
+.case:last-of-type{ border-bottom: 1.5px solid var(--ink); }
+.case:nth-child(even) .case-media{ order: 2; }
+@media (max-width: 860px){
+  .case{ grid-template-columns: 1fr; }
+  .case:nth-child(even) .case-media{ order: 0; }
+}
+
+.case-media{
+  aspect-ratio: 4 / 3; border: 1.5px solid var(--ink); border-radius: 6px;
+  position: relative; overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+  background:
+    radial-gradient(circle at 1.5px 1.5px, color-mix(in srgb, var(--riso-blue) 28%, transparent) 1.5px, transparent 0);
+  background-size: 9px 9px;
+  background-color: color-mix(in srgb, var(--riso-blue) 6%, var(--paper));
+}
+.case-media img{ width:100%; height:100%; object-fit: cover; display:block; }
+.case-media .placeholder{
+  font-family: var(--font-mono); font-size: 12px; color: var(--riso-blue);
+  border: 1.5px dashed var(--riso-blue); border-radius: 4px;
+  padding: 10px 16px; background: var(--paper); text-align:center; line-height:1.5;
+  max-width: 80%;
+}
+
+.case-no{
+  font-family: var(--font-mono); font-size: 12px; color: var(--ink-soft);
+  display:flex; align-items:center; gap:10px; margin-bottom: 12px;
+}
+.case h3{
+  font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(22px, 2.6vw, 30px); line-height:1.1; margin-bottom: 14px;
+}
+.case p.summary{ color: var(--ink); margin-bottom: 16px; max-width: 56ch; }
+
+.chips{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom: 18px; }
+.chip{
+  font-family: var(--font-mono); font-size: 12px;
+  border: 1.5px solid var(--ink); border-radius: 999px; padding: 4px 12px;
+}
+
+/* the AI-in-the-loop annotation — the recruiter hook */
+.ai-note{
+  border-left: 3px solid var(--riso-pink);
+  background: color-mix(in srgb, var(--riso-pink) 7%, var(--paper));
+  padding: 14px 16px; border-radius: 0 6px 6px 0; margin-bottom: 18px;
+}
+.ai-note .label{
+  font-family: var(--font-mono); font-size: 11px; letter-spacing:.12em;
+  color: var(--riso-pink); display:block; margin-bottom: 6px; font-weight:500;
+}
+.ai-note p{ font-size: 15px; line-height: 1.55; }
+
+.case-links{ display:flex; gap:18px; font-family: var(--font-mono); font-size:14px; }
+.case-links a{ text-decoration: underline; text-underline-offset: 4px; }
+.case-links a:hover{ color: var(--riso-blue); }
+
+/* ---------- process / how I use AI ---------- */
+.process{ background: var(--ink); color: var(--paper); }
+.process .sect-head h2{ color: var(--paper); }
+.process .sect-head .rule{ background: var(--paper); }
+.process .sect-head .count{ color: color-mix(in srgb, var(--paper) 60%, transparent); }
+.process-grid{
+  display:grid; grid-template-columns: repeat(4, 1fr); gap: 1.5px;
+  background: color-mix(in srgb, var(--paper) 35%, transparent);
+  border: 1.5px solid color-mix(in srgb, var(--paper) 35%, transparent);
+  border-radius: 6px; overflow:hidden;
+}
+@media (max-width: 980px){ .process-grid{ grid-template-columns: repeat(2,1fr);} }
+@media (max-width: 560px){ .process-grid{ grid-template-columns: 1fr;} }
+.step{ background: var(--ink); padding: 26px 22px; }
+.step .step-tag{
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em;
+  color: var(--riso-yellow); margin-bottom: 14px; display:block;
+}
+.step h3{ font-family: var(--font-display); font-weight:600; font-size: 19px; margin-bottom: 10px; }
+.step p{ font-size: 15px; color: color-mix(in srgb, var(--paper) 78%, transparent); }
+.process .ethos{
+  margin-top: 36px; font-family: var(--font-mono); font-size: 14px;
+  color: color-mix(in srgb, var(--paper) 70%, transparent);
+  max-width: 70ch;
+}
+.process .ethos b{ color: var(--riso-yellow); font-weight: 500; }
+
+/* ---------- about ---------- */
+.about-grid{ display:grid; grid-template-columns: 1.4fr 1fr; gap: clamp(24px, 5vw, 64px); }
+@media (max-width: 860px){ .about-grid{ grid-template-columns: 1fr; } }
+.about-grid p{ margin-bottom: 16px; max-width: 60ch; }
+.about-grid .em{ background: linear-gradient(transparent 62%, color-mix(in srgb, var(--riso-yellow) 55%, transparent) 0); }
+.facts{ font-family: var(--font-mono); font-size: 13.5px; display:grid; gap: 12px; align-content:start; }
+.facts div{ display:flex; gap:12px; align-items:baseline; border-bottom: 1px dashed var(--ink-soft); padding-bottom: 12px; }
+.facts dt{ color: var(--ink-soft); min-width: 86px; }
+
+/* ---------- contact / footer ---------- */
+.contact{ text-align:center; padding-bottom: 60px; }
+.contact .overprint{ font-size: clamp(34px, 5.6vw, 64px); display:inline-block; }
+.contact p{ margin: 20px auto 28px; max-width: 46ch; }
+.colophon{
+  border-top: 1.5px solid var(--ink); margin-top: 64px; padding-top: 22px;
+  font-family: var(--font-mono); font-size: 12px; color: var(--ink-soft);
+  display:flex; justify-content:space-between; gap: 16px; flex-wrap:wrap; text-align:left;
+}
+
+/* ---------- reveal animation ---------- */
+.reveal{ opacity: 0; transform: translateY(14px); transition: opacity .55s ease, transform .55s ease; }
+.reveal.in{ opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity:1; transform:none; transition:none; }
+  .btn{ transition:none; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav" aria-label="Main">
+    <a class="logo" href="#top"><span class="regmark" aria-hidden="true"><i></i></span>Lucy&nbsp;Tran</a>
+    <ul>
+      <li><a href="#work">work</a></li>
+      <li><a href="#process">ai_process</a></li>
+      <li><a href="#about">about</a></li>
+      <li><a href="#contact">contact</a></li>
+    </ul>
+    <span class="stamp">OPEN TO WORK · RIGA → BCN</span>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero wrap">
+    <div class="hero-grid">
+      <div>
+        <p class="kicker"><span class="regmark" aria-hidden="true"><i></i></span> DESIGN ENGINEER · ILLUSTRATOR · CS GRADUATE ’26</p>
+        <h1 class="overprint">
+          <span data-text="I draw it,">I draw it,</span>
+          <span data-text="then I build it.">then I build it.</span>
+        </h1>
+        <p class="hero-sub">
+          I'm Lucy — a design engineer with an illustrator's hands and a computer-science brain.
+          I design interfaces, ship them in <strong>React + TypeScript</strong>, and run an
+          <strong>AI-augmented workflow</strong> that lets me move from sketch to production faster than a team twice my size.
+        </p>
+        <div class="hero-cta">
+          <a class="btn" href="#work">See the work</a>
+          <a class="btn ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+
+      <aside class="spec reveal" aria-label="Specifications">
+        <h2>SPEC SHEET <span class="regmark" aria-hidden="true"><i></i></span></h2>
+        <dl>
+          <div><dt>Build</dt><dd>React · TypeScript · Next.js · Vite</dd></div>
+          <div><dt>Style</dt><dd>Tailwind · CSS · shadcn/ui · SVG</dd></div>
+          <div><dt>Design</dt><dd>Figma · type systems · illustration</dd></div>
+          <div><dt>AI kit</dt><dd class="accent">Claude · Copilot · prompt-driven prototyping</dd></div>
+          <div><dt>Edition</dt><dd>1 of 1 · printed in Riga, 2026</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===================== WORK ===================== -->
+  <section id="work" class="wrap">
+    <div class="sect-head">
+      <h2>Selected work</h2>
+      <span class="rule" aria-hidden="true"></span>
+      <span class="count">04 prints</span>
+    </div>
+
+    <!-- CASE 01 -->
+    <article class="case reveal">
+      <div class="case-media">
+        <!-- TODO: replace with a real screenshot or short screen recording poster -->
+        <span class="placeholder">DROP SCREENSHOT HERE<br>(file-explorer demo, 4:3)</span>
+      </div>
+      <div>
+        <p class="case-no"><span class="regmark" aria-hidden="true"><i></i></span> 01 — FRONTEND ENGINEERING</p>
+        <h3>Recursive file explorer in React + TypeScript</h3>
+        <p class="summary">
+          A VS Code–style file tree built from scratch: tree construction from flat data,
+          recursive rendering, immutable state updates, and localStorage persistence —
+          designed around the data model first, UI second.
+        </p>
+        <div class="chips">
+          <span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Vite</span><span class="chip">localStorage</span>
+        </div>
+        <div class="ai-note">
+          <span class="label">AI IN THE LOOP</span>
+          <p>Used Claude as a data-modeling sparring partner: inferred the API response shape, drafted discriminated-union types, then hand-verified every type before writing a line of UI. AI proposed; I disposed.</p>
+        </div>
+        <p class="case-links">
+          <a href="#" aria-disabled="true">Live demo →</a>
+          <a href="#" aria-disabled="true">Source on GitHub →</a>
+        </p>
+      </div>
+    </article>
+
+    <!-- CASE 02 -->
+    <article class="case reveal">
+      <div class="case-media">
+        <span class="placeholder">DROP SCREENSHOT HERE<br>(commission tracker dashboard)</span>
+      </div>
+      <div>
+        <p class="case-no"><span class="regmark" aria-hidden="true"><i></i></span> 02 — DESIGN ENGINEERING</p>
+        <h3>Commission HQ — a tracker for working artists</h3>
+        <p class="summary">
+          A project tracker I built for my own freelance illustration practice: urgency-sorted
+          queue, filter chips, live revenue stats, local-first storage. Designed the system in
+          Figma, shipped it as a zero-dependency web app, and use it daily.
+        </p>
+        <div class="chips">
+          <span class="chip">HTML/CSS/JS</span><span class="chip">Figma</span><span class="chip">design system</span><span class="chip">local-first</span>
+        </div>
+        <div class="ai-note">
+          <span class="label">AI IN THE LOOP</span>
+          <p>Prompt-driven prototyping: described interaction states in plain language, generated three layout variants with AI, then rebuilt the winning one by hand to my own spacing and type scale. The taste is mine; the iteration speed is the machine's.</p>
+        </div>
+        <p class="case-links">
+          <a href="#" aria-disabled="true">Live app →</a>
+          <a href="#" aria-disabled="true">Case study →</a>
+        </p>
+      </div>
+    </article>
+
+    <!-- CASE 03 -->
+    <article class="case reveal">
+      <div class="case-media">
+        <span class="placeholder">DROP VISUAL HERE<br>(thesis charts / interactive viz)</span>
+      </div>
+      <div>
+        <p class="case-no"><span class="regmark" aria-hidden="true"><i></i></span> 03 — ML + DATA VISUALIZATION</p>
+        <h3>Predicting clustering performance with meta-learning</h3>
+        <p class="summary">
+          My bachelor's thesis (University of Latvia): a meta-learning system that recommends
+          clustering algorithms from dataset characteristics — Random Forest hitting 65% accuracy
+          against a 38% baseline. I'm turning the results into an interactive web visualization.
+        </p>
+        <div class="chips">
+          <span class="chip">Python</span><span class="chip">scikit-learn</span><span class="chip">meta-learning</span><span class="chip">d3 (planned)</span>
+        </div>
+        <div class="ai-note">
+          <span class="label">AI IN THE LOOP</span>
+          <p>AI as research assistant, not author: stress-tested my methodology with adversarial Q&amp;A, debugged DBSCAN edge cases, and pressure-checked the class-separability circularity concern before my committee could.</p>
+        </div>
+        <p class="case-links">
+          <a href="#" aria-disabled="true">Read the thesis →</a>
+          <a href="#" aria-disabled="true">Interactive viz (coming) →</a>
+        </p>
+      </div>
+    </article>
+
+    <!-- CASE 04 -->
+    <article class="case reveal">
+      <div class="case-media">
+        <span class="placeholder">DROP SCREENSHOT HERE<br>(geofence dashboard, anonymized)</span>
+      </div>
+      <div>
+        <p class="case-no"><span class="regmark" aria-hidden="true"><i></i></span> 04 — PRODUCT WORK</p>
+        <h3>Geofence management dashboard — Hoplon</h3>
+        <p class="summary">
+          Internship work on a production dashboard: map-based geofence drawing and management
+          built with Next.js, shadcn/ui and Tailwind. Real users, real constraints, real code review.
+        </p>
+        <div class="chips">
+          <span class="chip">Next.js</span><span class="chip">shadcn/ui</span><span class="chip">Tailwind</span><span class="chip">maps</span>
+        </div>
+        <div class="ai-note">
+          <span class="label">AI IN THE LOOP</span>
+          <p>Used AI to read unfamiliar codebase territory fast — explaining diffs, mapping component dependencies — so onboarding took days, not weeks. Every suggestion went through the team's review process like any other code.</p>
+        </div>
+        <p class="case-links">
+          <a href="#" aria-disabled="true">Write-up →</a>
+        </p>
+      </div>
+    </article>
+  </section>
+
+  <!-- ===================== AI PROCESS ===================== -->
+  <section id="process" class="process">
+    <div class="wrap">
+      <div class="sect-head">
+        <h2>How AI fits my process</h2>
+        <span class="rule" aria-hidden="true"></span>
+        <span class="count">workflow v2.6</span>
+      </div>
+      <div class="process-grid">
+        <div class="step">
+          <span class="step-tag">01 / SKETCH</span>
+          <h3>Direct, don't delegate</h3>
+          <p>Every project starts analog — thumbnails, type studies, data-model sketches. AI never decides what to make; it widens the space of how.</p>
+        </div>
+        <div class="step">
+          <span class="step-tag">02 / PROTOTYPE</span>
+          <h3>Prompt-driven variants</h3>
+          <p>I describe states and constraints in precise language and generate throwaway variants in minutes. Cheap exploration, expensive taste.</p>
+        </div>
+        <div class="step">
+          <span class="step-tag">03 / BUILD</span>
+          <h3>Verify everything</h3>
+          <p>AI-suggested code is treated like a junior teammate's PR: read it, type-check it, test it, rewrite it when it's wrong. I own every line I ship.</p>
+        </div>
+        <div class="step">
+          <span class="step-tag">04 / SHIP</span>
+          <h3>Document the loop</h3>
+          <p>Each case study notes exactly where AI helped and where it didn't. The workflow is part of the work — and it compounds with every project.</p>
+        </div>
+      </div>
+      <p class="ethos">// Position: AI is a power tool, not an autopilot. <b>The output is only as good as the judgment driving it</b> — and judgment is what I've trained twice: once as an illustrator, once as an engineer.</p>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section id="about" class="wrap">
+    <div class="sect-head">
+      <h2>About</h2>
+      <span class="rule" aria-hidden="true"></span>
+      <span class="count">the artist's statement</span>
+    </div>
+    <div class="about-grid">
+      <div class="reveal">
+        <p>
+          I spent years as a <span class="em">freelance digital illustrator</span> — commissions, print runs,
+          tattoo and character design — before finishing a computer science degree at the University of Latvia.
+          That order matters: I learned to see before I learned to build, and it shows in how I write interfaces.
+        </p>
+        <p>
+          Design engineering is the job where both halves get used at once. I care about type scales the way
+          I care about type systems, and I think the best UI work happens when one person can carry an idea
+          from <span class="em">Figma frame to production component</span> without a handoff in between.
+        </p>
+        <p>
+          Currently in Riga, relocating toward <span class="em">Barcelona</span>, where my family is — learning
+          Spanish on the way. When I'm not shipping, I'm drawing, cooking Vietnamese food, or rearranging a
+          shelf of Sylvanian Families with unreasonable precision.
+        </p>
+      </div>
+      <dl class="facts reveal">
+        <div><dt>BASED</dt><dd>Riga, LV → Barcelona, ES</dd></div>
+        <div><dt>DEGREE</dt><dd>BSc Computer Science, Univ. of Latvia ’26</dd></div>
+        <div><dt>SPEAKS</dt><dd>English · Vietnamese · Spanish (learning)</dd></div>
+        <div><dt>ALSO</dt><dd>Illustration commissions &amp; print shop</dd></div>
+        <div><dt>STATUS</dt><dd>Open to frontend / design engineer roles</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact" class="contact wrap">
+    <h2 class="overprint"><span data-text="Let's make something.">Let's make something.</span></h2>
+    <p>If you need someone who can design the thing, build the thing, and use every tool available to ship it faster — I'd love to talk.</p>
+    <div class="hero-cta" style="justify-content:center;">
+      <!-- TODO: replace with your real email + links -->
+      <a class="btn" href="mailto:hello@example.com">hello@example.com</a>
+      <a class="btn ghost" href="#" aria-disabled="true">GitHub</a>
+      <a class="btn ghost" href="#" aria-disabled="true">LinkedIn</a>
+    </div>
+
+    <footer class="colophon">
+      <span>© 2026 Lucy Tran (Dinh Phuoc Nguyen Tran)</span>
+      <span>Designed &amp; built by hand + machine · 2-ink edition · Riga</span>
+      <span>Type: Bricolage Grotesque / Instrument Sans / Spline Sans Mono</span>
+    </footer>
+  </section>
+
+</main>
+
+<script>
+/* Scroll reveal — disabled automatically if the user prefers reduced motion */
+(function(){
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+})();
+</script>
+
+</body>
+</html>
