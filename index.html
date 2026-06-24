@@ -316,8 +316,7 @@ section{ padding: clamp(56px, 9vh, 110px) 0; }
       <div>
         <p class="kicker"><span class="regmark" aria-hidden="true"><i></i></span> FULL-STACK DEVELOPER · ML ENTHUSIAST · CS STUDENT ‘26</p>
         <h1 class="overprint">
-          <span data-text="I model it,">I model it,</span>
-          <span data-text="then I ship it.">then I ship it.</span>
+          <span id="hero-type" data-text="" aria-label="hi, i'm lucy."></span>
         </h1>
         <p class="hero-sub">
           I’m Lucy — a CS bachelor graduate from the University of Latvia. 
@@ -522,6 +521,41 @@ section{ padding: clamp(56px, 9vh, 110px) 0; }
     });
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+})();
+
+/* Hero typing animation — keeps data-text in sync so the overprint layers animate too */
+(function(){
+  const el = document.getElementById('hero-type');
+  if (!el) return;
+  const text = "hi, i'm lucy.";
+  const SPEED = 85;
+
+  function render(typed, cursor) {
+    const v = typed + (cursor ? '|' : '');
+    el.textContent = v;
+    el.dataset.text = v;
+  }
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    render(text, false);
+    return;
+  }
+
+  let i = 0;
+  function type() {
+    render(text.slice(0, i), true);
+    if (i < text.length) { i++; setTimeout(type, SPEED); }
+    else { setTimeout(blink, 500); }
+  }
+
+  let cursorOn = true;
+  function blink() {
+    cursorOn = !cursorOn;
+    render(text, cursorOn);
+    setTimeout(blink, 530);
+  }
+
+  setTimeout(type, 350);
 })();
 </script>
 
