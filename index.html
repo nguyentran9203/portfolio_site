@@ -349,25 +349,31 @@ section{ padding: clamp(56px, 9vh, 110px) 0; }
       <span class="rule" aria-hidden="true"></span>
       <span class="count">04 prints</span>
     </div>
-
     <!-- CASE 01 -->
     <article class="case reveal">
       <div class="case-media">
-        <img src="images/vietnam-nails.png" alt="Vietnam Nails website — trilingual nail studio site in Sabadell" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-        <span class="placeholder" style="display:none">images/vietnam-nails.png</span>
+        <img src="images/palettesnap.png" alt="PaletteSnap — turns any photo into a named color palette" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <span class="placeholder" style="display:none">images/palettesnap.png</span>
       </div>
       <div>
-        <p class="case-no"><span class="regmark" aria-hidden="true"><i></i></span> 01 — WEB DEVELOPMENT</p>
-        <h3>Vietnam Nails — multilingual nail studio website</h3>
+        <p class="case-no"><span class="regmark" aria-hidden="true"><i></i></span> 01 — WEB DEVELOPMENT · CLIENT-SIDE TOOL</p>
+        <h3>PaletteSnap — turn any photo into a named color palette</h3>
         <p class="summary">
-          A production website for a nail studio in Sabadell, Spain,
-          trilingual support (English, Spanish, Catalan), services, styles gallery, and contact booking.
+          A client-side tool that extracts 3–8 dominant colors from any photo via canvas pixel
+          quantization and auto-names them ("Twilight Navy," "Sanded Almond"). Click directly on
+          the photo to override a swatch with an exact sampled pixel, then export the finished
+          palette card as a PNG or generate Instagram grid layout suggestions sorted by hue,
+          saturation, and lightness.
         </p>
         <div class="chips">
-          <span class="chip">HTML/CSS/JS</span><span class="chip">i18n</span><span class="chip">responsive</span><span class="chip">production</span>
+          <span class="chip">JavaScript</span><span class="chip">Canvas API</span><span class="chip">color quantization</span><span class="chip">client-side</span>
+        </div>
+        <div class="ai-note">
+          <span class="label">AI IN THE LOOP</span>
+          <p>Used AI to prototype the color-naming heuristic and the HSL-based grid-sorting logic quickly, then hand-tuned both against a gallery of real photos until the results looked right, not just technically correct.</p>
         </div>
         <p class="case-links">
-          <a href="https://vietnamnails.netlify.app" aria-disabled="true">Live site →</a>
+          <a href="#" aria-disabled="true">Live site →</a>
         </p>
       </div>
     </article>
