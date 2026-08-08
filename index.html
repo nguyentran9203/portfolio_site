@@ -422,7 +422,10 @@ section{padding:clamp(56px,9vh,104px) 0}
     <a class="logo" href="#top"><span class="regmark" aria-hidden="true"><i></i></span>Lucy&nbsp;Tran</a>
     <ul>
       <li><a href="#work">work</a></li>
+<<<<<<< HEAD
       <li><a href="#process">process</a></li>
+=======
+>>>>>>> 8c6115517c2a1919bf7471c315161a1f1b62f598
       <li><a href="#about">about</a></li>
       <li><a href="#contact">contact</a></li>
     </ul>
@@ -438,7 +441,13 @@ section{padding:clamp(56px,9vh,104px) 0}
         <h1 id="hero-title" class="overprint">
           <span id="hero-type" data-text="" aria-label="hi, i'm lucy."></span>
         </h1>
+<<<<<<< HEAD
         <p class="hero-sub">I design responsive interfaces, clarify complex flows, and build working prototypes that help product and engineering teams move together.</p>
+=======
+        <p class="hero-sub">
+          Software engineer and artist currently based in Barcelona. 
+        </p>
+>>>>>>> 8c6115517c2a1919bf7471c315161a1f1b62f598
         <div class="hero-cta">
           <a class="btn" href="#work">View selected work</a>
           <a class="btn ghost" href="#contact">Get in touch</a>
@@ -464,6 +473,7 @@ section{padding:clamp(56px,9vh,104px) 0}
       <span class="rule" aria-hidden="true"></span>
       <span class="count">04 case notes</span>
     </div>
+<<<<<<< HEAD
 
     <article class="case case-featured reveal">
       <div class="case-media">
@@ -549,10 +559,34 @@ section{padding:clamp(56px,9vh,104px) 0}
         <p class="case-links">
           <a href="https://docs.google.com/document/d/1cb9onlcTl3cIGvss0Ggq8n7sJgczxoo9XMJlrhZaCQY/edit?usp=sharing" target="_blank" rel="noopener">Read the thesis →</a>
           <a href="https://clusterpick.streamlit.app" target="_blank" rel="noopener">Try ClusterPick →</a>
+=======
+    <!-- CASE 01 -->
+    <article class="case reveal">
+      <div class="case-media">
+        <img src="images/palettesnap.png" alt="PaletteSnap — turns any photo into a named color palette" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <span class="placeholder" style="display:none">images/palettesnap.png</span>
+      </div>
+      <div>
+        <p class="case-no"><span class="regmark" aria-hidden="true"><i></i></span> 01 — WEB DEVELOPMENT </p>
+        <h3>PaletteSnap — turn any photo into a named color palette</h3>
+        <p class="summary">
+          A client-side tool that extracts 3–8 dominant colors from any photo via canvas pixel
+          quantization and auto-names them ("Twilight Navy," "Sanded Almond"). Click directly on
+          the photo to override a swatch with an exact sampled pixel, then export the finished
+          palette card as a PNG or generate Instagram grid layout suggestions sorted by hue,
+          saturation, and lightness.
+        </p>
+        <div class="chips">
+          <span class="chip">JavaScript</span><span class="chip">Canvas API</span><span class="chip">color quantization</span>
+        </div>
+        <p class="case-links">
+          <a href="https://palettesnapp.netlify.app" aria-disabled="true">Live site →</a>
+>>>>>>> 8c6115517c2a1919bf7471c315161a1f1b62f598
         </p>
       </div>
     </article>
 
+<<<<<<< HEAD
     <article class="case reveal">
       <div class="case-media">
         <img src="images/teica-ai.png" alt="TEICA.AI product interface for natural-language product search" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
@@ -573,6 +607,92 @@ section{padding:clamp(56px,9vh,104px) 0}
           </dl>
         </div>
         <p class="case-links"><a href="https://teica.ai" target="_blank" rel="noopener">Company site →</a></p>
+=======
+       <!-- CASE 02 -->
+    <article class="case reveal">
+      <div class="case-media">
+        <img src="images/doodle-circus.png" alt="Doodle Circus — kids' drawing app with guided lessons and canvas-to-animation" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <span class="placeholder" style="display:none">images/doodle-circus.png</span>
+      </div>
+      <div>
+        <p class="case-no"><span class="regmark" aria-hidden="true"><i></i></span> 02 — WEB DEVELOPMENT · CANVAS UI</p>
+        <h3>Doodle Circus — a drawing app for kids</h3>
+        <p class="summary">
+          A circus-themed drawing app for young kids: guided step-by-step lessons (fish, owl),
+          a free-draw mode, and a "Bring it to Life" button that turns a finished sketch into a
+          short animation. Built on the HTML5 Canvas API with a two-layer draw/guide system and
+          a friendly mascot ("Coach Bobo") that walks kids through each lesson.
+        </p>
+        <div class="chips">
+          <span class="chip">HTML5 Canvas</span><span class="chip">JavaScript</span><span class="chip">responsive UI/UX</span>
+        </div>
+        <div class="ai-note">
+          <span class="label">AI IN THE LOOP</span>
+          <p>Paired with AI to iterate fast on layout bugs — e.g. diagnosing why the color/tool rail overflowed the viewport on smaller screens and reshaping it into a compact two-column grid that fits without scrolling.</p>
+        </div>
+        <p class="case-links">
+          <a href="https://doodlecircus.netlify.app">Live site →</a>
+          <a href="https://github.com/nguyentran9203/DoodleCircus" target="_blank" rel="noopener">GitHub →</a>
+        </p>
+      </div>
+    </article>
+
+    <!-- CASE 03 -->
+    <article class="case reveal">
+      <div class="case-media">
+        <img src="images/clusterpick.png" alt="ClusterPick — meta-learning clustering algorithm selector" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <span class="placeholder" style="display:none">images/clusterpick.png</span>
+      </div>
+      <div>
+        <p class="case-no"><span class="regmark" aria-hidden="true"><i></i></span> 03 — ML + DATA · BACHELOR'S THESIS</p>
+        <h3>ClusterPick — predicting clustering performance with meta-learning</h3>
+        <p class="summary">
+          My bachelor's thesis at the University of Latvia, shipped as an interactive web tool:
+          upload a CSV, and ClusterPick extracts 49 meta-features, detects dataset geometry
+          (e.g. "Anisotropic / mixed, high noise"), ranks K-Means, DBSCAN, HDBSCAN, K-Medoids,
+          and Agglomerative by predicted ARI, and shows a 2D PCA cluster diagram — all from
+          a Random Forest trained on 500 synthetic datasets.
+        </p>
+        <div class="chips">
+          <span class="chip">Python</span><span class="chip">scikit-learn</span>
+        </div>
+        <div class="ai-note">
+          <span class="label">AI IN THE LOOP</span>
+          <p>AI as research sparring partner: stress-tested methodology with adversarial Q&amp;A, debugged DBSCAN edge cases, and surfaced circularity concerns in class separability evaluation before my committee raised them.</p>
+        </div>
+        <p class="case-links">
+          <a href="https://docs.google.com/document/d/1cb9onlcTl3cIGvss0Ggq8n7sJgczxoo9XMJlrhZaCQY/edit?usp=sharing" aria-disabled="true">Read the thesis →</a>
+          <a href="https://clusterpick.streamlit.app" aria-disabled="true">Try ClusterPick →</a>
+        </p>
+      </div>
+    </article>
+
+    <!-- CASE 04 -->
+    <article class="case reveal">
+      <div class="case-media">
+        <img src="images/teica-ai.png" alt="Teica.ai — AI-powered product semantic search" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <span class="placeholder" style="display:none">images/teica-ai.png</span>
+      </div>
+      <div>
+        <p class="case-no"><span class="regmark" aria-hidden="true"><i></i></span> 04 — INTERNSHIP · BACKEND + AI</p>
+        <h3>AI-powered product search — TEICA.AI</h3>
+        <p class="summary">
+          Web applications built during my internship at TEICA.AI, including a product search
+          engine that lets users search by natural language description ("Air purifier for small room",
+          "Gaming laptop with 32GB RAM and RTX") — Node.js backend containerised with Docker,
+          MongoDB for persistence, and Weaviate vector database powering semantic retrieval.
+        </p>
+        <div class="chips">
+          <span class="chip">Node.js</span><span class="chip">Docker</span><span class="chip">MongoDB</span><span class="chip">Weaviate</span><span class="chip">semantic search</span>
+        </div>
+        <div class="ai-note">
+          <span class="label">AI IN THE LOOP</span>
+          <p>Worked directly alongside AI infrastructure (Weaviate vector DB), which sharpened my intuition for when embeddings beat keyword search and what chunking strategies affect retrieval quality.</p>
+        </div>
+        <p class="case-links">
+          <a href="https://teica.ai" aria-disabled="true">Live site →</a>
+        </p>
+>>>>>>> 8c6115517c2a1919bf7471c315161a1f1b62f598
       </div>
     </article>
   </section>
