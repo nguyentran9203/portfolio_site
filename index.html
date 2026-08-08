@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Lucy Tran · UX/UI Designer & Frontend Developer</title>
-<meta name="description" content="Lucy Tran is a UX/UI designer and frontend developer in Riga, creating responsive interfaces, visual systems, and working prototypes." />
+<title>Lucy Tran · Junior UX/UI Designer & Frontend Developer</title>
+<meta name="description" content="Lucy Tran is a junior UX/UI designer and frontend developer in Riga, creating responsive interfaces, visual systems, and working prototypes." />
 <meta name="theme-color" content="#F5F4EF" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -422,6 +422,7 @@ section{padding:clamp(56px,9vh,104px) 0}
     <a class="logo" href="#top"><span class="regmark" aria-hidden="true"><i></i></span>Lucy&nbsp;Tran</a>
     <ul>
       <li><a href="#work">work</a></li>
+      <li><a href="#process">process</a></li>
       <li><a href="#about">about</a></li>
       <li><a href="#contact">contact</a></li>
     </ul>
@@ -437,9 +438,7 @@ section{padding:clamp(56px,9vh,104px) 0}
         <h1 id="hero-title" class="overprint">
           <span id="hero-type" data-text="" aria-label="hi, i'm lucy."></span>
         </h1>
-        <p class="hero-sub">
-          Software engineer and artist currently based in Barcelona. 
-        </p>
+        <p class="hero-sub">I design responsive interfaces, clarify complex flows, and build working prototypes that help product and engineering teams move together.</p>
         <div class="hero-cta">
           <a class="btn" href="#work">View selected work</a>
           <a class="btn ghost" href="#contact">Get in touch</a>
@@ -465,115 +464,115 @@ section{padding:clamp(56px,9vh,104px) 0}
       <span class="rule" aria-hidden="true"></span>
       <span class="count">04 case notes</span>
     </div>
-    <!-- CASE 01 -->
+
+    <article class="case case-featured reveal">
+      <div class="case-media">
+        <img src="images/doodle-circus.png" alt="Doodle Circus drawing interface with guided lessons and canvas tools" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <span class="placeholder" style="display:none">Doodle Circus project preview</span>
+      </div>
+      <div class="case-copy">
+        <div>
+          <p class="case-no"><span class="regmark" aria-hidden="true"><i></i></span> 01 · PRODUCT DESIGN · CHILD-FRIENDLY CANVAS</p>
+          <h3>Doodle Circus: designing a guided drawing flow for kids</h3>
+          <p class="summary">A playful browser drawing app that balances step-by-step lessons, open-ended creativity, and a toolset young users can understand without instruction.</p>
+          <div class="chips">
+            <span class="chip">UI/UX</span><span class="chip">responsive design</span><span class="chip">Canvas API</span><span class="chip">micro-interactions</span>
+          </div>
+          <p class="case-links">
+            <a href="https://doodlecircus.netlify.app" target="_blank" rel="noopener">Live site →</a>
+            <a href="https://github.com/nguyentran9203/DoodleCircus" target="_blank" rel="noopener">GitHub →</a>
+          </p>
+        </div>
+        <div>
+          <div class="case-evidence">
+            <dl>
+              <div><dt>USER GOAL</dt><dd>Start drawing quickly, follow a lesson when needed, and see the finished sketch come alive.</dd></div>
+              <div><dt>FLOW</dt><dd>Choose guided or free draw, use a focused toolset, complete the drawing, then trigger animation feedback.</dd></div>
+              <div><dt>CONSTRAINT</dt><dd>Many drawing controls had to remain readable and reachable on smaller screens.</dd></div>
+              <div><dt>DECISION</dt><dd>Reshape the tool rail into a compact two-column system instead of forcing horizontal scrolling.</dd></div>
+            </dl>
+          </div>
+          <div class="process-note">
+            <span class="label">ITERATION EVIDENCE</span>
+            <p>The first responsive layout overflowed the viewport. I used AI-assisted debugging to locate the layout conflict, then revised and tested the control grouping across smaller breakpoints.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
     <article class="case reveal">
       <div class="case-media">
-        <img src="images/palettesnap.png" alt="PaletteSnap — turns any photo into a named color palette" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-        <span class="placeholder" style="display:none">images/palettesnap.png</span>
+        <img src="images/palettesnap.png" alt="PaletteSnap interface extracting and naming colors from a photograph" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <span class="placeholder" style="display:none">PaletteSnap project preview</span>
       </div>
       <div>
-        <p class="case-no"><span class="regmark" aria-hidden="true"><i></i></span> 01 — WEB DEVELOPMENT </p>
-        <h3>PaletteSnap — turn any photo into a named color palette</h3>
-        <p class="summary">
-          A client-side tool that extracts 3–8 dominant colors from any photo via canvas pixel
-          quantization and auto-names them ("Twilight Navy," "Sanded Almond"). Click directly on
-          the photo to override a swatch with an exact sampled pixel, then export the finished
-          palette card as a PNG or generate Instagram grid layout suggestions sorted by hue,
-          saturation, and lightness.
-        </p>
+        <p class="case-no"><span class="regmark" aria-hidden="true"><i></i></span> 02 · INTERACTION DESIGN · VISUAL TOOL</p>
+        <h3>PaletteSnap: turning color extraction into an editable workflow</h3>
+        <p class="summary">A client-side tool that extracts three to eight dominant colors, gives each color a memorable name, and lets users correct the palette by sampling directly from the image.</p>
         <div class="chips">
-          <span class="chip">JavaScript</span><span class="chip">Canvas API</span><span class="chip">color quantization</span>
+          <span class="chip">interaction design</span><span class="chip">color systems</span><span class="chip">Canvas API</span><span class="chip">responsive UI</span>
+        </div>
+        <div class="case-evidence">
+          <dl>
+            <div><dt>STRUCTURE</dt><dd>Upload, review extracted colors, directly sample a replacement, then export the final palette.</dd></div>
+            <div><dt>DECISION</dt><dd>Keep technical image processing invisible while preserving direct control over every result.</dd></div>
+            <div><dt>OUTPUT</dt><dd>A reusable palette card and Instagram layout suggestions organized by hue, saturation, and lightness.</dd></div>
+          </dl>
+        </div>
+        <p class="case-links"><a href="https://palettesnapp.netlify.app" target="_blank" rel="noopener">Live site →</a></p>
+      </div>
+    </article>
+
+    <article class="case reveal">
+      <div class="case-media">
+        <img src="images/clusterpick.png" alt="ClusterPick interface showing dataset analysis and clustering recommendations" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <span class="placeholder" style="display:none">ClusterPick project preview</span>
+      </div>
+      <div>
+        <p class="case-no"><span class="regmark" aria-hidden="true"><i></i></span> 03 · INFORMATION DESIGN · BACHELOR'S THESIS</p>
+        <h3>ClusterPick: explaining an ML recommendation to non-specialists</h3>
+        <p class="summary">An interactive research tool that turns 49 dataset characteristics into ranked clustering recommendations, plain-language geometry descriptions, and a visual result.</p>
+        <div class="chips">
+          <span class="chip">information architecture</span><span class="chip">data visualization</span><span class="chip">Streamlit</span><span class="chip">evaluation</span>
+        </div>
+        <div class="case-evidence">
+          <dl>
+            <div><dt>FLOW</dt><dd>Upload a CSV, inspect dataset characteristics, compare ranked algorithms, then review a 2D cluster visualization.</dd></div>
+            <div><dt>CHALLENGE</dt><dd>Expose enough methodology to support trust without requiring users to understand the full model pipeline.</dd></div>
+            <div><dt>VALIDATION</dt><dd>Stress-tested edge cases, challenged evaluation assumptions, and revised the methodology before thesis review.</dd></div>
+          </dl>
+        </div>
+        <div class="process-note">
+          <span class="label">AI-ASSISTED REVIEW</span>
+          <p>I used adversarial questions to uncover DBSCAN edge cases and a circularity risk in class-separability evaluation, then verified and addressed those concerns in the research.</p>
         </div>
         <p class="case-links">
-          <a href="https://palettesnapp.netlify.app" aria-disabled="true">Live site →</a>
+          <a href="https://docs.google.com/document/d/1cb9onlcTl3cIGvss0Ggq8n7sJgczxoo9XMJlrhZaCQY/edit?usp=sharing" target="_blank" rel="noopener">Read the thesis →</a>
+          <a href="https://clusterpick.streamlit.app" target="_blank" rel="noopener">Try ClusterPick →</a>
         </p>
       </div>
     </article>
 
-       <!-- CASE 02 -->
     <article class="case reveal">
       <div class="case-media">
-        <img src="images/doodle-circus.png" alt="Doodle Circus — kids' drawing app with guided lessons and canvas-to-animation" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-        <span class="placeholder" style="display:none">images/doodle-circus.png</span>
+        <img src="images/teica-ai.png" alt="TEICA.AI product interface for natural-language product search" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <span class="placeholder" style="display:none">TEICA.AI project preview</span>
       </div>
       <div>
-        <p class="case-no"><span class="regmark" aria-hidden="true"><i></i></span> 02 — WEB DEVELOPMENT · CANVAS UI</p>
-        <h3>Doodle Circus — a drawing app for kids</h3>
-        <p class="summary">
-          A circus-themed drawing app for young kids: guided step-by-step lessons (fish, owl),
-          a free-draw mode, and a "Bring it to Life" button that turns a finished sketch into a
-          short animation. Built on the HTML5 Canvas API with a two-layer draw/guide system and
-          a friendly mascot ("Coach Bobo") that walks kids through each lesson.
-        </p>
+        <p class="case-no"><span class="regmark" aria-hidden="true"><i></i></span> 04 · INTERNSHIP · MULTIDISCIPLINARY DELIVERY</p>
+        <h3>TEICA.AI: translating semantic search into a product experience</h3>
+        <p class="summary">During my internship, I contributed to web applications including natural-language product search backed by Node.js, MongoDB, Docker, and Weaviate.</p>
         <div class="chips">
-          <span class="chip">HTML5 Canvas</span><span class="chip">JavaScript</span><span class="chip">responsive UI/UX</span>
+          <span class="chip">cross-functional work</span><span class="chip">semantic search</span><span class="chip">Node.js</span><span class="chip">Weaviate</span>
         </div>
-        <div class="ai-note">
-          <span class="chip">AI IN THE LOOP</span>
-          <p>Paired with AI to iterate fast on layout bugs — e.g. diagnosing why the color/tool rail overflowed the viewport on smaller screens and reshaping it into a compact two-column grid that fits without scrolling.</p>
+        <div class="case-evidence">
+          <dl>
+            <div><dt>USER NEED</dt><dd>Search by intent, constraints, and natural descriptions instead of exact product keywords.</dd></div>
+            <div><dt>TEAM VALUE</dt><dd>Connect retrieval infrastructure to a user-facing search workflow while working inside an existing product context.</dd></div>
+            <div><dt>LEARNING</dt><dd>How embeddings, metadata, and chunking decisions affect the quality users experience at the interface.</dd></div>
+          </dl>
         </div>
-        <p class="case-links">
-          <a href="https://doodlecircus.netlify.app">Live site →</a>
-          <a href="https://github.com/nguyentran9203/DoodleCircus" target="_blank" rel="noopener">GitHub →</a>
-        </p>
-      </div>
-    </article>
-
-    <!-- CASE 03 -->
-    <article class="case reveal">
-      <div class="case-media">
-        <img src="images/clusterpick.png" alt="ClusterPick — meta-learning clustering algorithm selector" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-        <span class="placeholder" style="display:none">images/clusterpick.png</span>
-      </div>
-      <div>
-        <p class="case-no"><span class="regmark" aria-hidden="true"><i></i></span> 03 — ML + DATA · BACHELOR'S THESIS</p>
-        <h3>ClusterPick — predicting clustering performance with meta-learning</h3>
-        <p class="summary">
-          My bachelor's thesis at the University of Latvia, shipped as an interactive web tool:
-          upload a CSV, and ClusterPick extracts 49 meta-features, detects dataset geometry
-          (e.g. "Anisotropic / mixed, high noise"), ranks K-Means, DBSCAN, HDBSCAN, K-Medoids,
-          and Agglomerative by predicted ARI, and shows a 2D PCA cluster diagram — all from
-          a Random Forest trained on 500 synthetic datasets.
-        </p>
-        <div class="chips">
-          <span class="chip">Python</span><span class="chip">scikit-learn</span>
-        </div>
-        <div class="ai-note">
-          <span class="chip">AI IN THE LOOP</span>
-          <p>AI as research sparring partner: stress-tested methodology with adversarial Q&amp;A, debugged DBSCAN edge cases, and surfaced circularity concerns in class separability evaluation before my committee raised them.</p>
-        </div>
-        <p class="case-links">
-          <a href="https://docs.google.com/document/d/1cb9onlcTl3cIGvss0Ggq8n7sJgczxoo9XMJlrhZaCQY/edit?usp=sharing" aria-disabled="true">Read the thesis →</a>
-          <a href="https://clusterpick.streamlit.app" aria-disabled="true">Try ClusterPick →</a>
-        </p>
-      </div>
-    </article>
-
-    <!-- CASE 04 -->
-    <article class="case reveal">
-      <div class="case-media">
-        <img src="images/teica-ai.png" alt="Teica.ai — AI-powered product semantic search" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-        <span class="placeholder" style="display:none">images/teica-ai.png</span>
-      </div>
-      <div>
-        <p class="case-no"><span class="regmark" aria-hidden="true"><i></i></span> 04 — INTERNSHIP · BACKEND + AI</p>
-        <h3>AI-powered product search — TEICA.AI</h3>
-        <p class="summary">
-          Web applications built during my internship at TEICA.AI, including a product search
-          engine that lets users search by natural language description ("Air purifier for small room",
-          "Gaming laptop with 32GB RAM and RTX") — Node.js backend containerised with Docker,
-          MongoDB for persistence, and Weaviate vector database powering semantic retrieval.
-        </p>
-        <div class="chips">
-          <span class="chip">Node.js</span><span class="chip">Docker</span><span class="chip">MongoDB</span><span class="chip">Weaviate</span><span class="chip">semantic search</span>
-        </div>
-        <div class="ai-note">
-          <span class="chip">AI IN THE LOOP</span>
-          <p>Worked directly alongside AI infrastructure (Weaviate vector DB), which sharpened my intuition for when embeddings beat keyword search and what chunking strategies affect retrieval quality.</p>
-        </div>
-        <p class="case-links">
-          <a href="https://teica.ai" aria-disabled="true">Live site →</a>
-        </p>
+        <p class="case-links"><a href="https://teica.ai" target="_blank" rel="noopener">Company site →</a></p>
       </div>
     </article>
   </section>
