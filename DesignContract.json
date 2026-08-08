@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "name": "lucy-ux-portfolio",
+  "source": {
+    "reference_html": "index.html"
+  },
+  "tokens": {
+    "palette": {
+      "paper": "#F5F4EF",
+      "ink": "#1B1A17",
+      "ink-soft": "#5C5A53",
+      "riso-blue": "#2F55A4",
+      "riso-pink": "#FF48B0",
+      "riso-yellow": "#FFB511"
+    },
+    "palette_tolerance": 24,
+    "type": {
+      "families": {
+        "display": "Bricolage Grotesque",
+        "body": "Instrument Sans",
+        "mono": "Spline Sans Mono"
+      },
+      "scale_px": [11, 12, 13, 14, 15, 17, 18, 19, 22, 26, 30, 40, 44, 64, 92],
+      "weights": [400, 500, 600, 800],
+      "size_tolerance_px": 1
+    },
+    "radius_px": [2, 4, 6, 999],
+    "spacing_base_px": 4,
+    "motion": {
+      "max_duration_ms": 600,
+      "easing": ["ease"]
+    }
+  },
+  "layout": {
+    "breakpoints": [390, 720, 860, 1120],
+    "container_max_px": 1120
+  },
+  "components": [
+    {
+      "name": "primary-navigation",
+      "selector": "header nav a",
+      "states": ["hover", "focus-visible"],
+      "require_focus_ring": true
+    },
+    {
+      "name": "portfolio-cta",
+      "selector": ".btn",
+      "states": ["hover", "focus-visible"],
+      "require_focus_ring": true
+    },
+    {
+      "name": "project-case",
+      "selector": ".case",
+      "states": [],
+      "optional": false
+    },
+    {
+      "name": "project-link",
+      "selector": ".case-links a",
+      "states": ["hover", "focus-visible"],
+      "require_focus_ring": true
+    }
+  ],
+  "forbidden": [
+    {
+      "kind": "text",
+      "name": "full-stack-positioning",
+      "match": "FULL-STACK DEVELOPER|Full-Stack Developer|full-stack / SWE"
+    },
+    {
+      "kind": "text",
+      "name": "student-positioning",
+      "match": "CS STUDENT"
+    },
+    {
+      "kind": "css",
+      "name": "generic-ai-purple",
+      "match": "linear-gradient[^;]*(#7c3aed|139, 92, 246)"
+    },
+    {
+      "kind": "text",
+      "name": "placeholder-copy",
+      "match": "lorem ipsum|TODO:"
+    }
+  ],
+  "budgets": {
+    "max_dom_nodes": 1400,
+    "max_page_weight_kb": 1800
+  },
+  "rules": {
+    "type_scale": "off",
+    "radius": "off",
+    "spacing": "off",
+    "motion": "warn"
+  }
+}
